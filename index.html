@@ -1,578 +1,100 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Selamat Ulang Tahun Bunda Dian</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ulang Tahun Bunda</title>
     <style>
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Poppins", sans-serif;
-            background: linear-gradient(135deg, #ffb6c1, #ff74a6, #ff4f81);
-            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff99cc, #ff66b2, #ff3385);
+            text-align: center;
             color: white;
             overflow-x: hidden;
-            position: relative;
         }
 
-        /* Container utama dengan efek glassmorphism */
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 30px 20px;
-            position: relative;
-            z-index: 10;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        /* Header dengan efek 3D */
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .title {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
-            color: #fff;
-            text-shadow: 3px 3px 0px rgba(255, 79, 129, 0.5),
-                         6px 6px 0px rgba(255, 79, 129, 0.3);
-            margin-bottom: 10px;
-            animation: bounceIn 1.5s ease;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 30px;
-        }
-
-        /* Foto profil dengan desain baru yang lebih baik */
-        .photo-container {
-            position: relative;
-            width: 320px;
-            height: 320px;
-            margin: 0 auto 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .photo-frame {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 12px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 
-                0 0 0 8px rgba(255, 79, 129, 0.5),
-                0 15px 35px rgba(0, 0, 0, 0.3),
-                inset 0 0 40px rgba(255, 255, 255, 0.9);
-            animation: photoGlow 3s infinite alternate ease-in-out;
-            transition: transform 0.5s ease;
-            position: relative;
-            z-index: 2;
-        }
-
-        .photo:hover {
-            transform: scale(1.05);
-        }
-
-        /* Dekorasi bunga di sekitar foto */
-        .photo-decoration {
-            position: absolute;
-            width: 120%;
-            height: 120%;
-            animation: rotateSlow 20s infinite linear;
-            z-index: 1;
-        }
-
-        .decoration-item {
-            position: absolute;
-            font-size: 30px;
-            color: rgba(255, 255, 255, 0.8);
-            animation: decorationFloat 4s infinite ease-in-out;
-        }
-
-        .decoration-item:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
-        .decoration-item:nth-child(2) { top: 50%; right: 0; transform: translateY(-50%); animation-delay: 0.5s; }
-        .decoration-item:nth-child(3) { bottom: 0; left: 50%; transform: translateX(-50%); animation-delay: 1s; }
-        .decoration-item:nth-child(4) { top: 50%; left: 0; transform: translateY(-50%); animation-delay: 1.5s; }
-        .decoration-item:nth-child(5) { top: 20%; left: 20%; animation-delay: 0.2s; }
-        .decoration-item:nth-child(6) { top: 20%; right: 20%; animation-delay: 0.7s; }
-        .decoration-item:nth-child(7) { bottom: 20%; left: 20%; animation-delay: 1.2s; }
-        .decoration-item:nth-child(8) { bottom: 20%; right: 20%; animation-delay: 1.7s; }
-
-        /* Pesan ucapan */
-        .message-box {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            margin: 30px 0;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .message-box::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                to bottom right,
-                rgba(255, 255, 255, 0.1) 0%,
-                rgba(255, 255, 255, 0) 50%
-            );
-            z-index: 1;
-        }
-
-        .message {
-            font-size: 1.3rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .signature {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.2rem;
-            color: #ffeb3b;
-            text-align: right;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Tombol kontrol musik */
-        .music-control {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 100;
-        }
-
-        .music-btn {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-            border: 2px solid white;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .music-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1) rotate(15deg);
-        }
-
-        /* Animasi love jatuh */
-        .love {
-            position: absolute;
-            color: #ff4f81;
-            font-size: 20px;
-            user-select: none;
-            z-index: 1;
-            animation: fall linear forwards;
-            pointer-events: none;
-        }
-
-        /* Animasi confetti */
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 20px;
-            background: #ffeb3b;
-            top: -20px;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .confetti:nth-child(odd) {
-            background: #ff4f81;
-        }
-
-        .confetti:nth-child(even) {
-            background: #4caf50;
-        }
-
-        .confetti:nth-child(3n) {
-            background: #2196f3;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
             margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            font-size: 0.9rem;
-            opacity: 0.8;
-            position: relative;
-            z-index: 2;
+            padding: 20px;
         }
 
-        /* Animasi kunci */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        img {
+            width: 290px;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+            animation: popUp 1.5s ease-out;
         }
 
-        @keyframes bounceIn {
+        @keyframes popUp {
             0% { transform: scale(0.5); opacity: 0; }
-            50% { transform: scale(1.05); }
-            70% { transform: scale(0.95); }
             100% { transform: scale(1); opacity: 1; }
         }
 
-        @keyframes photoGlow {
-            0% { box-shadow: 
-                    0 0 0 8px rgba(255, 79, 129, 0.5),
-                    0 15px 35px rgba(0, 0, 0, 0.3),
-                    inset 0 0 40px rgba(255, 255, 255, 0.9); }
-            100% { box-shadow: 
-                    0 0 0 12px rgba(255, 79, 129, 0.7),
-                    0 20px 40px rgba(0, 0, 0, 0.4),
-                    inset 0 0 50px rgba(255, 255, 255, 1); }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            animation: fadeIn 2s ease-in-out;
         }
 
-        @keyframes rotateSlow {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        p {
+            max-width: 600px;
+            margin: auto;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            animation: fadeIn 3s ease-in-out;
         }
 
-        @keyframes decorationFloat {
-            0%, 100% { transform: translateY(0) scale(1); opacity: 0.8; }
-            50% { transform: translateY(-10px) scale(1.1); opacity: 1; }
-        }
-
-        @keyframes fall {
-            to {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        @keyframes confettiFall {
-            0% { transform: translateY(0) rotate(0deg); }
-            100% { transform: translateY(100vh) rotate(360deg); }
-        }
-
-        /* Responsif */
-        @media (max-width: 768px) {
-            .title {
-                font-size: 2.8rem;
-            }
-            
-            .photo-container {
-                width: 280px;
-                height: 280px;
-            }
-            
-            .photo {
-                border-width: 10px;
-            }
-            
-            .message {
-                font-size: 1.1rem;
-            }
-            
-            .decoration-item {
-                font-size: 24px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .title {
-                font-size: 2.2rem;
-            }
-            
-            .photo-container {
-                width: 240px;
-                height: 240px;
-            }
-            
-            .photo {
-                border-width: 8px;
-            }
-            
-            .message-box {
-                padding: 20px;
-            }
-            
-            .music-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.3rem;
-            }
-            
-            .decoration-item {
-                font-size: 20px;
-            }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Kontrol musik -->
-    <div class="music-control">
-        <button id="musicBtn" class="music-btn">
-            <i class="fas fa-volume-up"></i>
-        </button>
-    </div>
-
-    <!-- Container utama -->
     <div class="container">
-        <div class="header">
-            <h1 class="title">Selamat Ulang Tahun Bunda Dian 🎉💖</h1>
-            <p class="subtitle">Semoga panjang umur, sehat selalu, dan bahagia dunia akhirat</p>
-        </div>
-
-        <div class="photo-container">
-            <div class="photo-frame">
-                <!-- Dekorasi bunga di sekitar foto -->
-                <div class="photo-decoration">
-                    <div class="decoration-item">🌸</div>
-                    <div class="decoration-item">🌺</div>
-                    <div class="decoration-item">🌷</div>
-                    <div class="decoration-item">🌹</div>
-                    <div class="decoration-item">💐</div>
-                    <div class="decoration-item">🌼</div>
-                    <div class="decoration-item">🌻</div>
-                    <div class="decoration-item">🥀</div>
-                </div>
-                
-                <!-- Gambar default jika Bunda.jpg tidak tersedia -->
-                <img src="Bunda.jpg" 
-                     alt="Foto Bunda Dian" class="photo" id="photo">
-            </div>
-        </div>
-
-        <div class="message-box">
-            <p class="message">
-                Untuk Bunda Dian , di hari yang spesial ini, semoga setiap langkahmu dipenuhi kebahagiaan, 
-                setiap harapan yang terpendam menjadi kenyataan, dan setiap detik hidupmu diwarnai dengan keceriaan. 
-                Terima kasih atas segala kasih sayang dan pengorbanan yang tak ternilai. 
-                Panjang umur dan sehat selalu, Bunda!
-            </p>
-            <div class="signature">Dari: Nabil </div>
-        </div>
-
-        <div class="footer">
-            <p>Dibuat dengan penuh cinta untuk merayakan hari spesial Bunda Dian</p>
-            <p>© 2023 - Ucapan ulang tahun </p>
-        </div>
+        <h1>Selamat Ulang Tahun Bunda Dian 🎉</h1>
+        <img src="Bunda.jpg" alt="Foto Bunda">
+        <p>
+            Semoga panjang umur, sehat selalu, dan diberikan kebahagiaan tanpa batas.  
+            Dari Nabil ❤️
+        </p>
     </div>
 
-    <!-- Audio untuk musik -->
-    <audio id="audio" loop>
-        <source src="https://assets.mixkit.co/music/preview/mixkit-happy-birthday-to-you-443.mp3" type="audio/mpeg">
+    <!-- 🎵 AUDIO ANTI ERROR – AUTOPLAY + ANTI HILANG -->
+    <audio id="musik" autoplay loop preload="auto">
         <source src="lagu.mp3" type="audio/mpeg">
     </audio>
 
     <script>
-        // Elemen DOM
-        const audio = document.getElementById('audio');
-        const musicBtn = document.getElementById('musicBtn');
-        const photo = document.getElementById('photo');
-        
-        // Status musik
-        let isPlaying = false;
-        
-        <!-- Musik Otomatis Anti Error -->
-<audio id="musik" autoplay loop preload="auto">
-    <source src="lagu.mp3" type="audio/mpeg">
-</audio>
+        const audio = document.getElementById("musik");
 
-<script>
-    const audio = document.getElementById("musik");
-
-    // 1. Coba autoplay saat halaman dibuka
-    window.addEventListener("load", () => {
-        audio.play().catch(() => {
-            console.log("Autoplay diblokir, menunggu interaksi user...");
+        // Coba autoplay saat halaman dibuka
+        window.addEventListener("load", () => {
+            audio.play().catch(() => {
+                console.log("Autoplay dicegah, menunggu interaksi pengguna...");
+            });
         });
-    });
 
-    // 2. Begitu user klik layar → musik langsung hidup
-    document.addEventListener("click", () => {
-        audio.play();
-    });
-
-    // 3. Kalau user scroll → musik juga hidup
-    document.addEventListener("scroll", () => {
-        audio.play();
-    });
-
-    // 4. Jika user sentuh layar (HP) → hidup juga
-    document.addEventListener("touchstart", () => {
-        audio.play();
-    });
-</script>
-
-        
-        // Beberapa event yang dapat digunakan untuk unlock audio
-        document.addEventListener('click', unlockAudio);
-        document.addEventListener('touchstart', unlockAudio);
-        document.addEventListener('keydown', unlockAudio);
-        window.addEventListener('scroll', unlockAudio);
-        
-        // Coba auto play setelah halaman dimuat
-        window.addEventListener('load', () => {
-            // Tunggu sebentar lalu coba auto play
-            setTimeout(attemptAutoPlay, 500);
+        // Begitu user klik layar -> musik pasti hidup
+        document.addEventListener("click", () => {
+            audio.play().catch(() => {});
         });
-        
-        // Cek gambar lokal
-        window.addEventListener('load', function() {
-            // Coba gambar lokal, jika gagal gunakan gambar default
-            fetch('Bunda.jpg')
-                .then(response => {
-                    if (!response.ok) throw new Error('Gambar tidak ditemukan');
-                    // Gambar lokal ada, tidak perlu ganti
-                    console.log('Gambar lokal ditemukan');
-                })
-                .catch(error => {
-                    console.log('Gambar lokal tidak ditemukan, menggunakan gambar default');
-                    // Gunakan gambar default yang lebih aesthetic
-                    photo.src = 'https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80';
-                    photo.alt = 'Ilustrasi Bunda Tersayang';
-                });
+
+        // Jika user scroll -> hidup
+        document.addEventListener("scroll", () => {
+            audio.play().catch(() => {});
         });
-        
-        // Buat animasi love jatuh
-        function createLove() {
-            const love = document.createElement('div');
-            love.classList.add('love');
-            love.innerHTML = '❤️';
-            
-            // Posisi acak di atas layar
-            love.style.left = Math.random() * 100 + 'vw';
-            
-            // Ukuran acak
-            const size = Math.random() * 20 + 10;
-            love.style.fontSize = size + 'px';
-            
-            // Kecepatan jatuh acak
-            const duration = Math.random() * 3 + 2;
-            love.style.animationDuration = duration + 's';
-            
-            // Tambahkan ke body
-            document.body.appendChild(love);
-            
-            // Hapus elemen setelah animasi selesai
-            setTimeout(() => {
-                love.remove();
-            }, duration * 1000);
-        }
-        
-        // Buat animasi confetti
-        function createConfetti() {
-            const confetti = document.createElement('div');
-            confetti.classList.add('confetti');
-            
-            // Posisi acak di atas layar
-            confetti.style.left = Math.random() * 100 + 'vw';
-            
-            // Lebar dan tinggi acak
-            const width = Math.random() * 10 + 5;
-            const height = Math.random() * 20 + 10;
-            confetti.style.width = width + 'px';
-            confetti.style.height = height + 'px';
-            
-            // Waktu animasi acak
-            const duration = Math.random() * 3 + 2;
-            confetti.style.animation = `confettiFall ${duration}s linear forwards`;
-            
-            // Tambahkan ke body
-            document.body.appendChild(confetti);
-            
-            // Hapus elemen setelah animasi selesai
-            setTimeout(() => {
-                confetti.remove();
-            }, duration * 1000);
-        }
-        
-        // Jalankan animasi love setiap 300ms
-        setInterval(createLove, 300);
-        
-        // Jalankan animasi confetti setiap 200ms (hanya untuk beberapa detik pertama)
-        let confettiInterval = setInterval(createConfetti, 200);
-        
-        // Hentikan confetti setelah 10 detik untuk menghindari overload
-        setTimeout(() => {
-            clearInterval(confettiInterval);
-        }, 10000);
-        
-        // Tambahkan confetti acak sesekali setelahnya
-        setInterval(() => {
-            if (Math.random() > 0.7) {
-                for (let i = 0; i < 5; i++) {
-                    setTimeout(createConfetti, i * 100);
-                }
-            }
-        }, 3000);
-        
-        // Tambahkan efek klik untuk menambahkan love
-        document.addEventListener('click', function(e) {
-            // Cegah jika klik di tombol musik
-            if (e.target.closest('.music-control')) return;
-            
-            // Buat love di posisi klik
-            const clickLove = document.createElement('div');
-            clickLove.classList.add('love');
-            clickLove.innerHTML = '💖';
-            clickLove.style.left = e.clientX + 'px';
-            clickLove.style.top = e.clientY + 'px';
-            clickLove.style.position = 'fixed';
-            clickLove.style.fontSize = '25px';
-            clickLove.style.animationDuration = '1.5s';
-            
-            document.body.appendChild(clickLove);
-            
-            // Hapus setelah animasi selesai
-            setTimeout(() => {
-                clickLove.remove();
-            }, 1500);
+
+        // Jika user menyentuh layar (HP) -> hidup
+        document.addEventListener("touchstart", () => {
+            audio.play().catch(() => {});
         });
-        
-        // Update status tombol musik secara berkala
-        setInterval(() => {
-            updateMusicButton();
-        }, 1000);
     </script>
 
 </body>
-
 </html>
