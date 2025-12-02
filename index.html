@@ -410,85 +410,37 @@
         // Status musik
         let isPlaying = false;
         
-        // Opsi untuk auto play musik
-        let audioAutoPlayAttempted = false;
-        
-        // Fungsi untuk mencoba auto play musik
-        function attemptAutoPlay() {
-            if (audioAutoPlayAttempted) return;
-            
-            audioAutoPlayAttempted = true;
-            
-            // Set volume
-            audio.volume = 0.7;
-            
-            // Coba play dengan promise
-            const playPromise = audio.play();
-            
-            if (playPromise !== undefined) {
-                playPromise
-                    .then(() => {
-                        console.log('Musik berhasil diputar otomatis');
-                        isPlaying = true;
-                        updateMusicButton();
-                    })
-                    .catch(error => {
-                        console.log('Auto play diblokir browser:', error);
-                        // Tampilkan indikasi bahwa musik siap diputar
-                        musicBtn.style.backgroundColor = 'rgba(255, 79, 129, 0.7)';
-                        musicBtn.innerHTML = '<i class="fas fa-play"></i>';
-                        musicBtn.title = "Klik untuk memutar musik";
-                    });
-            }
-        }
-        
-        // Fungsi untuk toggle musik
-        function toggleMusic() {
-            if (isPlaying) {
-                audio.pause();
-                isPlaying = false;
-            } else {
-                audio.play()
-                    .then(() => {
-                        isPlaying = true;
-                    })
-                    .catch(error => {
-                        console.log('Gagal memutar musik:', error);
-                        // Coba lagi dengan interaksi pengguna
-                        setTimeout(() => {
-                            audio.play()
-                                .then(() => {
-                                    isPlaying = true;
-                                })
-                                .catch(e => console.log('Masih gagal:', e));
-                        }, 100);
-                    });
-            }
-            updateMusicButton();
-        }
-        
-        // Fungsi untuk update tampilan tombol musik
-        function updateMusicButton() {
-            if (isPlaying) {
-                musicBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
-                musicBtn.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
-                musicBtn.title = "Klik untuk mematikan musik";
-            } else {
-                musicBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
-                musicBtn.style.backgroundColor = 'rgba(255, 79, 129, 0.7)';
-                musicBtn.title = "Klik untuk memutar musik";
-            }
-        }
-        
-        // Event listener untuk tombol musik
-        musicBtn.addEventListener('click', toggleMusic);
-        
-        // Event listener untuk interaksi pengguna (untuk unlock audio)
-        const unlockAudio = () => {
-            if (!audioAutoPlayAttempted) {
-                attemptAutoPlay();
-            }
-        };
+        <!-- Musik Otomatis Anti Error -->
+<audio id="musik" autoplay loop preload="auto">
+    <source src="lagu.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    const audio = document.getElementById("musik");
+
+    // 1. Coba autoplay saat halaman dibuka
+    window.addEventListener("load", () => {
+        audio.play().catch(() => {
+            console.log("Autoplay diblokir, menunggu interaksi user...");
+        });
+    });
+
+    // 2. Begitu user klik layar → musik langsung hidup
+    document.addEventListener("click", () => {
+        audio.play();
+    });
+
+    // 3. Kalau user scroll → musik juga hidup
+    document.addEventListener("scroll", () => {
+        audio.play();
+    });
+
+    // 4. Jika user sentuh layar (HP) → hidup juga
+    document.addEventListener("touchstart", () => {
+        audio.play();
+    });
+</script>
+
         
         // Beberapa event yang dapat digunakan untuk unlock audio
         document.addEventListener('click', unlockAudio);
@@ -622,4 +574,5 @@
     </script>
 
 </body>
+
 </html>
